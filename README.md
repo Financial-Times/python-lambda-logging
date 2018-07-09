@@ -16,7 +16,7 @@ logger = setup_lambda_logger()
 def lambda_handler(event, context):
     
     # Log as normal
-    logger.info("Message from logger")
+    logger.info("Message from lambda handler")
     
     return 'Hello World'
 ```
@@ -28,8 +28,8 @@ Example 1: Logs function arn and version, event, and return value
 START RequestId: a294a20e-8367-11e8-922b-933d39684751 Version: $LATEST
 INFO RequestId: a294a20e-8367-11e8-922b-933d39684751	Function: arn:aws:lambda:eu-west-1:783072210281:function:Logging-test - $LATEST
 DEBUG RequestId: a294a20e-8367-11e8-922b-933d39684751	Event: {'key3': 'value3', 'key2': 'value2', 'key1': 'value1'}
-INFO RequestId: a294a20e-8367-11e8-922b-933d39684751	Message from logger
-DEBUG RequestId: a294a20e-8367-11e8-922b-933d39684751	Return Value: Hello from Logging-Test
+INFO RequestId: a294a20e-8367-11e8-922b-933d39684751	Message from lambda handler
+DEBUG RequestId: a294a20e-8367-11e8-922b-933d39684751	Return Value: Hello World
 END RequestId: a294a20e-8367-11e8-922b-933d39684751
 ```
 
@@ -39,7 +39,7 @@ Example 2: Logs exceptions when they occur
 START RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0 Version: $LATEST
 INFO RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0	Function: arn:aws:lambda:eu-west-1:783072210281:function:Logging-test - $LATEST
 DEBUG RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0	Event: {'key3': 'value3', 'key2': 'value2', 'key1': 'value1'}
-INFO RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0	Message from logger
+INFO RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0	Message from lambda handler
 ERROR RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0	There was an exception raised in arn:aws:lambda:eu-west-1:783072210281:function:Logging-test
 error: ValueError
 Traceback (most recent call last):
