@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="python-lambda-logging",
+    name="python_lambda_logging",
     version="0.0.1",
     author="Financial Times - Cloud Enablement Team",
     author_email="cloudenablement@ft.com",
