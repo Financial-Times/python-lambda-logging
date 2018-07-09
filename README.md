@@ -1,3 +1,5 @@
+A simple utility library to make log details of lambda function handler execution including function name and version, the event passed in to the lambda, the return value from the lambda and any exception if raised. All log entries include the aws_request_id.
+
 # Example Usage:
 
 ```python
@@ -7,7 +9,7 @@ from lambda_logging import *
 logger = setup_lambda_logger()
 
 
-# Decorate the lambda handler with @logged
+# Decorate the lambda handler with @logged_handler passing in a logger
 @logged_handler(logger)
 def lambda_handler(event, context):
     
