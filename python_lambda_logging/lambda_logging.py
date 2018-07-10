@@ -12,7 +12,7 @@ def setup_lambda_logger():
         FORMAT = '%(levelname)s RequestId: %(aws_request_id)s\t%(message)s\n'
         h.setFormatter(logging.Formatter(FORMAT))
     
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
     
     return logger
     
@@ -27,11 +27,11 @@ def logged_handler(logger):
             event = args[0]
             context = args[1]
             logger.info("Function: " + context.invoked_function_arn + " - " + context.function_version)
-            logger.debug("Event: " + str(event))
+            logger.info("Event: " + str(event))
 
             try:
                 result = function(*args, **kwargs)
-                logger.debug("Return Value: " + str(result))
+                logger.info("Return Value: " + str(result))
                 return result
             except:
                 logger.error("There was an exception raised in " + context.invoked_function_arn)
