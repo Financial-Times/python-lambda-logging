@@ -52,6 +52,14 @@ ValueError: error
 END RequestId: 42ed424e-8369-11e8-a6f8-2b7929b2e1e0
 ```
 
+# Installation
+
+```pip install git+https://github.com/Financial-Times/python-lambda-logging.git@master#egg=python_lambda_logging```
+
+or add the following to your requirements.txt
+
+```git+https://github.com/Financial-Times/python-lambda-logging.git@master#egg=python_lambda_logging ```
+
 # Licence
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 
