@@ -26,7 +26,7 @@ def logged_handler(logger):
         def wrapper(*args, **kwargs):
             event = args[0]
             context = args[1]
-            logger.info("Function: " + context.invoked_function_arn + " - " + context.function_version)
+            logger.info("Function: " + context['invoked_function_arn'] + " - " + context['function_version'])
             logger.info("Event: " + str(event))
 
             try:
