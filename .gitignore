@@ -1,0 +1,10 @@
+__pycache__
+venv
+*.pyc
+.cache
+.idea
+.coverage
+.pytest_cache/
+htmlcov/
+tests.xml
+tools-ci-pytest.xml
