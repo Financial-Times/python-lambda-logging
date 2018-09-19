@@ -5,7 +5,7 @@ A simple utility library to log details of lambda function handler execution inc
 # Example Usage:
 
 ```python
-from python_lambda_logging import *
+from python_lambda_logging import setup_lambda_logger
 
 # Configure a python logger for use with lambda
 logger = setup_lambda_logger()
@@ -14,16 +14,16 @@ logger = setup_lambda_logger()
 # Decorate the lambda handler with @logged_handler passing in a logger
 @logged_handler(logger)
 def lambda_handler(event, context):
-    
+
     # Log as normal
     logger.info("Message from lambda handler")
-    
+
     return 'Hello World'
 ```
 
 # Sample Log Output
 
-Example 1: Logs function arn and version, event, and return value 
+Example 1: Logs function arn and version, event, and return value
 ```
 START RequestId: a294a20e-8367-11e8-922b-933d39684751 Version: $LATEST
 INFO RequestId: a294a20e-8367-11e8-922b-933d39684751	Function: arn:aws:lambda:eu-west-1:783072210281:function:Logging-test - $LATEST
