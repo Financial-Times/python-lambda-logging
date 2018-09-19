@@ -29,5 +29,5 @@ coverage report \
 
 coverage html \
     --omit '*cli.py','*__init__.py' \
-    --fail-under 18
+    --fail-under 15
 
