@@ -9,9 +9,9 @@ def setup_lambda_logger():
     %(levelname)s RequestId: %(aws_request_id)s\t%(message)s\n
     """
     logger = logging.getLogger()
-    for handle in logger.handlers:
+    for handler in logger.handlers:
         logformat = '%(levelname)s RequestId: %(aws_request_id)s\t%(message)s\n'
-        handle.setFormatter(logging.Formatter(logformat))
+        handler.setFormatter(logging.Formatter(logformat))
 
     logger.setLevel(logging.INFO)
 
