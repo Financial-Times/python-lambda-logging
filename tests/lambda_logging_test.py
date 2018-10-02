@@ -37,6 +37,7 @@ def test_setup_lambda_logger(caplog):
 
     assert caplog.text == 'lambda_logging_test.py      33 ERROR    Hello\n'
 
+
 def test_setup_lambda_logger_raise_exception(caplog):
     """Test call to setup_lambda_logger."""
     caplog.set_level(logging.ERROR)
@@ -49,8 +50,8 @@ def test_setup_lambda_logger_raise_exception(caplog):
     with raises(Exception):
         lambda_logging(SAMPLE_EVENT, SAMPLE_CONTEXT)
 
-    assert 'lambda_logging_test.py      46 ERROR    Hello\n' in caplog.text
-    assert "lambda_logging.py           43 ERROR    There was an exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
+    assert 'lambda_logging_test.py      47 ERROR    Hello\n' in caplog.text
+    assert "lambda_logging.py           42 ERROR    There was an exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
 
 
 def test_setup_lambda_logger_info_mode(caplog):
@@ -64,7 +65,7 @@ def test_setup_lambda_logger_info_mode(caplog):
 
     lambda_logging(SAMPLE_EVENT, SAMPLE_CONTEXT)
 
-    assert 'lambda_logging_test.py      62 ERROR    Hello\n' in caplog.text
+    assert 'lambda_logging_test.py      63 ERROR    Hello\n' in caplog.text
     assert 'lambda_logging.py           32 INFO     Function: arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F - $LATEST' in caplog.text
 
 
