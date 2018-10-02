@@ -34,7 +34,6 @@ def logged_handler(logger):
                 logger.error("Invalid Context: %s %s", expt, context)
                 raise expt
             logger.info("Event: %s", str(event))
-
             try:
                 result = function(*args, **kwargs)
                 logger.info("Return Value: %s", str(result))
