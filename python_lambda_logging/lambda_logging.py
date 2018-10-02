@@ -28,12 +28,15 @@ def logged_handler(logger):
         def wrapper(*args, **kwargs):
             event = args[0]
             context = args[1]
-            try:
-                logger.info("Function: %s - %s", context['invoked_function_arn'], context['function_version'])
-            except TypeError as expt:
-                logger.error("Invalid Context: %s %s", expt, context)
-                raise expt
-            logger.info("Event: %s", str(event))
+            function_arn = 'arn:unknown'
+            if context and 'invoked_function_arn' in context:
+                function_arn = context['invoked_function_arn']
+            function_ver = 'ver:unknown'
+            if context and 'function_version' in context:
+                function_ver = context['function_version']
+            logger.info("Function: %s - %s", function_arn, function_ver)
+            if event:
+                logger.info("Event: %s", str(event))
             try:
                 result = function(*args, **kwargs)
                 logger.info("Return Value: %s", str(result))
