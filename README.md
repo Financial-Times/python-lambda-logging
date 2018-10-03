@@ -5,18 +5,18 @@ A simple utility library to log details of lambda function handler execution inc
 # Example Usage:
 
 ```python
-from python_lambda_logging import setup_lambda_logger
+from python_lambda_logging import logged_handler, setup_lambda_logger
 
 # Configure a python logger for use with lambda
-logger = setup_lambda_logger()
+LOGGER = setup_lambda_logger()
 
 
 # Decorate the lambda handler with @logged_handler passing in a logger
-@logged_handler(logger)
+@logged_handler(LOGGER)
 def lambda_handler(event, context):
 
     # Log as normal
-    logger.info("Message from lambda handler")
+    LOGGER.info("Message from lambda handler")
 
     return 'Hello World'
 ```
