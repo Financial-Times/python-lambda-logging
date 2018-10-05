@@ -29,11 +29,14 @@ def logged_handler(logger):
             event = args[0]
             context = args[1]
             function_arn = 'arn:unknown'
-            if context and 'invoked_function_arn' in context:
-                function_arn = context['invoked_function_arn']
             function_ver = 'ver:unknown'
-            if context and 'function_version' in context:
-                function_ver = context['function_version']
+            try:
+                if context and 'invoked_function_arn' in context:
+                    function_arn = context['invoked_function_arn']
+                if context and 'function_version' in context:
+                    function_ver = context['function_version']
+            except TypeError:
+                pass
             logger.info("Function: %s - %s", function_arn, function_ver)
             if event:
                 logger.info("Event: %s", str(event))
