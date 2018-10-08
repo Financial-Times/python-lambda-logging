@@ -94,7 +94,7 @@ def test_setup_lambda_logger_info_mode_not_iterable_context(caplog):
         LOGGER.error("Hello")
         pass
 
-    lambda_logging(SAMPLE_EVENT, MagicMock())
+    lambda_logging(SAMPLE_EVENT, "context invoked_function_arn function_version")
 
     assert 'ERROR    Hello\n' in caplog.text
     assert "Function: arn:unknown" in caplog.text
