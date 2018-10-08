@@ -2,6 +2,7 @@
 import os
 import sys
 import logging
+from unittest.mock import MagicMock
 from pytest import raises
 
 PATH = os.path.dirname(os.path.realpath(__file__))
@@ -79,6 +80,21 @@ def test_setup_lambda_logger_info_mode_bad_context(caplog):
         pass
 
     lambda_logging(SAMPLE_EVENT, None)
+
+    assert 'ERROR    Hello\n' in caplog.text
+    assert "Function: arn:unknown" in caplog.text
+
+
+def test_setup_lambda_logger_info_mode_not_iterable_context(caplog):
+    """Test call to setup_lambda_logger."""
+    caplog.set_level(logging.INFO)
+
+    @logged_handler(LOGGER)
+    def lambda_logging(event, context):
+        LOGGER.error("Hello")
+        pass
+
+    lambda_logging(SAMPLE_EVENT, MagicMock())
 
     assert 'ERROR    Hello\n' in caplog.text
     assert "Function: arn:unknown" in caplog.text

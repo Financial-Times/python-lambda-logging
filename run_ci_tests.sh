@@ -9,25 +9,16 @@ if [ -d venv ]; then
 fi
 
 virtualenv -p python3.6 venv >/dev/null 2>&1
-
+# shellcheck source=/dev/null
 source venv/bin/activate
 
-[ -e /var/go/get-pip.py ] || curl -s -o/var/go/get-pip.py https://bootstrap.pypa.io/get-pip.py
-python /var/go/get-pip.py >/dev/null 2>&1
+pip install --upgrade pip==10.0.1
+pip install \
+    -U \
+    -e \
+    "git+ssh://git@github.com/Financial-Times/aws-composer-pipeline-scripts-general.git@master#egg=aws_composer_general[testing]" \
+    -r requirements.txt \
+    --process-dependency-links
 
-pip install -r requirements.txt
-pip install -r requirements-test.txt
-
-coverage run \
-    --source python_lambda_logging \
-    -m pytest \
-    --junitxml=tools-ci-pytest.xml \
-    tests
-
-coverage report \
-    -m
-
-coverage html \
-    --omit '*cli.py','*__init__.py' \
-    --fail-under 15
-
+composer run-tests --coverage --cov_dir=python_lambda_logging tests
+xmllint --format tests.xml --output tests.linted.xml && mv tests.linted.xml tests.xml
