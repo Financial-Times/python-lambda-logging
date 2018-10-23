@@ -1,17 +1,19 @@
 """Lambda Logging Decorator."""
 import setuptools
-
-with open("README.md", "r") as fh:
-    LONG_DESCRIPTION = fh.read()
+import python_lambda_logging
 
 setuptools.setup(
-    name="python_lambda_logging",
-    version="0.0.1",
-    author="Financial Times - Cloud Enablement Team",
-    author_email="cloudenablement@ft.com",
-    description="A python 3 logging utility library for logging of AWS lambda functions",
+
+    name=python_lambda_logging.__title__,
+    version=python_lambda_logging.__version__,
+    author=python_lambda_logging.__author__,
+    author_email=python_lambda_logging.__email__,
+    description=python_lambda_logging.__summary__,
+    long_description=open("README.md", "r").read(),
+    long_description_content_type='text/markdown',
+    license=python_lambda_logging.__license__,
+    url=python_lambda_logging.__uri__,
     packages=setuptools.find_packages(),
-    long_description=LONG_DESCRIPTION,
     python_requires='>3.5,<3.7',
     classifiers=['Development Status :: 5 - Production/Stable',
                  'Intended Audience :: Developers',
