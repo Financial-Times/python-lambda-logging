@@ -52,7 +52,7 @@ def test_setup_lambda_logger_raise_exception(caplog):
         lambda_logging(SAMPLE_EVENT, SAMPLE_CONTEXT)
 
     assert 'ERROR    Hello\n' in caplog.text
-    assert "ERROR    There was an exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
+    assert "ERROR    There was an unexpected exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
 
 
 def test_setup_lambda_logger_info_mode(caplog):
