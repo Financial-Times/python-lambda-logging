@@ -45,7 +45,10 @@ def logged_handler(logger):
                 logger.info("Return Value: %s", str(result))
                 return result
             except Exception:
-                logger.error("There was an exception raised in %s", context['invoked_function_arn'])
+                if context and 'invoked_function_arn' in context:
+                    logger.error("There was an unexpected exception raised in %s", context['invoked_function_arn'])
+                else:
+                    logger.error("There was an unexpected exception raised")
                 raise
         return wrapper
     return decorator
