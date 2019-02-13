@@ -1,4 +1,12 @@
-# Change Log created on 2018-10-25
+# Change Log created on 2019-02-13
+  * Update lambda_logging_test.py
+  * Update lambda_logging.py
+  * Update lambda_logging.py
+
+### 2019-02-12
+  * Version [0.0.3](../../releases/tag/0.0.3)
+
+### 2018-10-25
   * convert MS to RST to build
 
 ### 2018-10-24
