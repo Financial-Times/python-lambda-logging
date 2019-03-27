@@ -9,7 +9,7 @@ __title__ = "python_lambda_logging"
 __summary__ = "A python 3 logging utility library for logging of AWS lambda functions"
 __uri__ = "https://github.com/Financial-Times/python-lambda-logging"
 
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 
 __author__ = "Financial Times - Cloud Enablement Team"
 __email__ = "cloud.enablement@ft.com"
