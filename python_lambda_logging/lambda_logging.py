@@ -31,10 +31,10 @@ def logged_handler(logger):
             function_arn = 'arn:unknown'
             function_ver = 'ver:unknown'
             try:
-                if context and 'invoked_function_arn' in context:
-                    function_arn = context['invoked_function_arn']
-                if context and 'function_version' in context:
-                    function_ver = context['function_version']
+                if context and hasattr(context, 'invoked_function_arn'):
+                    function_arn = context.invoked_function_arn
+                if context and hasattr(context, 'function_version'):
+                    function_ver = context.function_version
             except TypeError:
                 pass
             logger.info("Function: %s - %s", function_arn, function_ver)
@@ -45,8 +45,8 @@ def logged_handler(logger):
                 logger.info("Return Value: %s", str(result))
                 return result
             except Exception:
-                if context and 'invoked_function_arn' in context:
-                    logger.error("There was an unexpected exception raised in %s", context['invoked_function_arn'])
+                if context and hasattr(context, 'invoked_function_arn'):
+                    logger.error("There was an unexpected exception raised in %s", context.invoked_function_arn)
                 else:
                     logger.error("There was an unexpected exception raised")
                 raise
