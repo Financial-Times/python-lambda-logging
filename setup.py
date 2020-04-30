@@ -14,7 +14,7 @@ setuptools.setup(
     license=python_lambda_logging.__license__,
     url=python_lambda_logging.__uri__,
     packages=setuptools.find_packages(),
-    python_requires='>3.5,<3.7',
+    python_requires='>3.5,<3.8',
     classifiers=['Development Status :: 5 - Production/Stable',
                  'Intended Audience :: Developers',
                  'Topic :: Software Development :: Libraries :: Python Modules',
