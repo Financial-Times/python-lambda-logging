@@ -52,7 +52,7 @@ def test_setup_lambda_logger(caplog):
 
     lambda_logging(SAMPLE_EVENT, SAMPLE_CONTEXT)
 
-    assert 'ERROR    Hello\n' in caplog.text
+    assert 'Hello\n' in caplog.text
 
 
 def test_setup_lambda_logger_raise_exception(caplog):
@@ -67,9 +67,8 @@ def test_setup_lambda_logger_raise_exception(caplog):
     with raises(Exception):
         lambda_logging(SAMPLE_EVENT, SAMPLE_OBJ_CONTEXT)
 
-    assert 'ERROR    Hello\n' in caplog.text
-    assert "ERROR    There was an unexpected exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
-
+    assert 'Hello\n' in caplog.text
+    assert "There was an unexpected exception raised in arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
 
 
 def test_setup_lambda_logger_raise_with_invalid_context_exception(caplog):
@@ -84,8 +83,8 @@ def test_setup_lambda_logger_raise_with_invalid_context_exception(caplog):
     with raises(Exception):
         lambda_logging(SAMPLE_EVENT, SAMPLE_CONTEXT)
 
-    assert 'ERROR    Hello\n' in caplog.text
-    assert "ERROR    There was an unexpected exception raised" in caplog.text
+    assert 'Hello\n' in caplog.text
+    assert "There was an unexpected exception raised" in caplog.text
 
 
 def test_setup_lambda_logger_info_mode(caplog):
@@ -99,8 +98,8 @@ def test_setup_lambda_logger_info_mode(caplog):
 
     lambda_logging(SAMPLE_EVENT, SAMPLE_OBJ_CONTEXT)
 
-    assert 'ERROR    Hello\n' in caplog.text
-    assert 'INFO     Function: arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F - $LATEST' in caplog.text
+    assert 'Hello\n' in caplog.text
+    assert 'Function: arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F - $LATEST' in caplog.text
 
 
 def test_setup_lambda_logger_info_mode_bad_context(caplog):
@@ -114,7 +113,7 @@ def test_setup_lambda_logger_info_mode_bad_context(caplog):
 
     lambda_logging(SAMPLE_EVENT, None)
 
-    assert 'ERROR    Hello\n' in caplog.text
+    assert 'Hello\n' in caplog.text
     assert "Function: arn:unknown" in caplog.text
 
 
@@ -129,7 +128,7 @@ def test_setup_lambda_logger_info_mode_not_iterable_context(caplog):
 
     lambda_logging(SAMPLE_EVENT, "context invoked_function_arn function_version")
 
-    assert 'ERROR    Hello\n' in caplog.text
+    assert 'Hello\n' in caplog.text
     assert "Function: arn:unknown" in caplog.text
 
 
@@ -144,5 +143,5 @@ def test_setup_lambda_logger_info_mode_bad_event(caplog):
 
     lambda_logging(None, SAMPLE_OBJ_CONTEXT)
 
-    assert 'ERROR    Hello\n' in caplog.text
+    assert 'Hello\n' in caplog.text
     assert "Function: arn:aws:lambda:us-west-2:123456789012:function:ExampleCloudFormationStackName-ExampleLambdaFunctionResourceName-AULC3LB8Q02F" in caplog.text
