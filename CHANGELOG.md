@@ -1,7 +1,11 @@
-# Change Log created on 2021-02-09
+# Change Log created on 2021-05-07
+
+### 2021-05-07
+  * Update README.rst
+  * Version [0.0.7](../../releases/tag/0.0.7)
+  * [Skip CI] Automatically creating CODEOWNERS file
 
 ### 2021-02-09
-  * [Skip CI] Automatically creating CODEOWNERS file
 
 ### 2020-05-07
   * Version [0.0.6](../../releases/tag/0.0.6)
@@ -9,19 +13,19 @@
 
 ### 2020-04-30
   * Update setup.py
-
-### 2019-03-27
   * Version [0.0.5](../../releases/tag/0.0.5)
   * correction to variable for context
   * Correct syntax
 
+### 2019-03-27
+
 ### 2019-02-13
   * Version [0.0.4](../../releases/tag/0.0.4)
-
-### 2019-02-12
   * Update lambda_logging_test.py
   * Update lambda_logging.py
   * Update lambda_logging.py
+
+### 2019-02-12
 
 ### 2018-10-25
   * Version [0.0.3](../../releases/tag/0.0.3)
@@ -47,14 +51,14 @@
   * correct tests
   * Create some tests for better coverage wrap writting of context message in a try to avoid issues
   * add more information
-
-### 2018-09-19
   * CR
   * correction to level
   * add gitignore file
   * add test
   * update built checks
   * update readme
+
+### 2018-09-19
   * apply restriction on which python version to install this into
 
 ### 2018-08-22
@@ -67,3 +71,10 @@
   * Tweaked log level to INFO
   * Fixed up __init__.py for imports
   * Rename module dir using underscores
+  * Update setup.py
+  * Update README.md
+  * Update README.md
+  * Update README.md
+  * Update README.md
+  * Initial commit
+  * Initial commit
