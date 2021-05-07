@@ -63,13 +63,13 @@ Installation
 
 .. code:: bash
 
-   pip install git+https://github.com/Financial-Times/python-lambda-logging.git@master#egg=python_lambda_logging
+   pip install git+https://github.com/Financial-Times/python-lambda-logging.git@main#egg=python_lambda_logging
 
 or add the following to your requirements.txt
 
 .. code:: bash
 
-   git+https://github.com/Financial-Times/python-lambda-logging.git@master#egg=python_lambda_logging
+   git+https://github.com/Financial-Times/python-lambda-logging.git@main#egg=python_lambda_logging
 
 Development
 -----------
